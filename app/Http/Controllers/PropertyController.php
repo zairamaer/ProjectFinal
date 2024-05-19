@@ -16,18 +16,17 @@ class PropertyController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->has('location') && $request->input('location')) {
-            $properties = Property::where('location', $request->input('location'))->get();
-        } else {
-            $properties = Property::all();
-        }
-        
-        $locations = Property::pluck('location')->unique()->filter()->toArray();
-    
-        return view('properties.index', compact('properties', 'locations'));
-    }    
+        $location = $request->input('location');
+        $properties = $location 
+            ? Property::where('location', $location)->get() 
+            : Property::all();
 
-        /**
+        $locations = Property::distinct()->pluck('location')->filter()->toArray();
+
+        return view('properties.index', compact('properties', 'locations'));
+    }
+
+    /**
      * Display the specified property.
      *
      * @param  int  $id
@@ -35,27 +34,28 @@ class PropertyController extends Controller
      */
     public function show($id)
     {
-        // Retrieve the property details from the database
         $property = Property::findOrFail($id);
-
-        // Return the property details to the view
         return view('properties.show', compact('property'));
     }
 
     /**
      * Filter properties by location.
      *
-     * @param  string  $location
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
     public function filterByLocation(Request $request)
     {
-        $location = $request->input('location');
-        $properties = Property::where('location', $location)->get();
-        $locations = Property::distinct('location')->pluck('location');
-        return view('properties.index', compact('properties', 'locations'));
+        return $this->index($request);
     }
 
+    /**
+     * Book a property.
+     *
+     * @param  Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function book(Request $request, $id)
     {
         // Validate the request data
@@ -70,14 +70,8 @@ class PropertyController extends Controller
         // Check for existing bookings overlapping with the requested date range
         $conflictingBookings = Booking::where('property_id', $property->id)
             ->where(function ($query) use ($request) {
-                $query->where(function ($query) use ($request) {
-                    $query->where('check_in', '>=', $request->check_in)
-                          ->where('check_in', '<', $request->check_out);
-                })
-                ->orWhere(function ($query) use ($request) {
-                    $query->where('check_out', '>', $request->check_in)
-                          ->where('check_out', '<=', $request->check_out);
-                });
+                $query->where('check_in', '<=', $request->check_out)
+                      ->where('check_out', '>=', $request->check_in);
             })
             ->exists();
     
@@ -86,12 +80,12 @@ class PropertyController extends Controller
         }
     
         // Create a new booking
-        $booking = new Booking();
-        $booking->user_id = Auth::id(); // Assign the authenticated user's id
-        $booking->property_id = $property->id;
-        $booking->check_in = $request->check_in;
-        $booking->check_out = $request->check_out;
-        // Add more fields to the booking as needed
+        $booking = new Booking([
+            'user_id' => Auth::id(),
+            'property_id' => $property->id,
+            'check_in' => $request->check_in,
+            'check_out' => $request->check_out,
+        ]);
         $booking->save();
     
         // Redirect back with success message
