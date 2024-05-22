@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Properties</title>
+    <title>Admin Dashboard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -31,14 +31,6 @@
             padding: 10px;
             border-radius: 4px;
         }
-        a.button {
-            display: inline-block;
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 4px;
-        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -54,36 +46,6 @@
         }
         tr:hover {
             background-color: #f9f9f9;
-        }
-        form {
-            display: inline;
-        }
-        form button {
-            background-color: #dc3545;
-            color: #fff;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        form button:hover {
-            background-color: #c82333;
-        }
-        .actions {
-            display: flex;
-            gap: 10px;
-        }
-        .edit-button {
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .edit-button:hover {
-            background-color: #218838;
         }
         .navbar {
             background-color: #333;
@@ -115,19 +77,7 @@
         .navbar .navbar-nav li a:hover {
             color: #ffc107;
         }
-        img.property-image {
-            max-width: 100px;
-            height: auto;
-            border-radius: 4px;
-        }
     </style>
-    <script>
-        function confirmDeletion(event) {
-            if (!confirm('Are you sure you want to delete this property?')) {
-                event.preventDefault();
-            }
-        }
-    </script>
 </head>
 <body>
     <div class="container">
@@ -140,39 +90,24 @@
                 <!-- Add more navigation items as needed -->
             </ul>
         </nav>
-        <h1>Admin Properties</h1>
+        <h1>All Users</h1>
 
-        @if(session('success'))
-            <div class="success-message">{{ session('success') }}</div>
-        @endif
-
-        <a href="{{ route('admin.properties.create') }}" class="button">Create New Property</a>
+        <!-- You can add a success message if needed -->
 
         <table>
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Location</th>
-                    <th>Actions</th>
+                    <th>Email</th>
+                    <th>Created At</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($properties as $property)
+                @foreach($users as $user)
                     <tr>
-                        <td>{{ $property->name }}</td>
-                        <td>{{ $property->description }}</td>
-                        <td>{{ $property->price }}</td>
-                        <td>{{ $property->location }}</td>
-                        <td class="actions">
-                            <a href="{{ route('admin.properties.edit', $property->id) }}" class="edit-button">Edit</a>
-                            <form action="{{ route('admin.properties.destroy', $property->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" onclick="confirmDeletion(event)">Delete</button>
-                            </form>
-                        </td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->created_at }}</td>
                     </tr>
                 @endforeach
             </tbody>

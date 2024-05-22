@@ -106,7 +106,7 @@
         <nav class="navbar">
             <a class="navbar-brand" href="#">Admin Panel</a>
             <ul class="navbar-nav">
-                <li><a href="#">Dashboard</a></li>
+                <li><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
                 <li><a href="{{ route('admin.bookings.index') }}">Bookings</a></li>
                 <li><a href="{{ route('admin.properties.index') }}">Properties</a></li>
                 <!-- Add more navigation items as needed -->

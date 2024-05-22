@@ -98,9 +98,9 @@
             <form action="{{ route('property.book', $property->id) }}" method="POST">
                 @csrf
                 <label for="check_in">Check-in Date:</label>
-                <input type="date" id="check_in" name="check_in" required><br><br>
+                <input type="date" id="check_in" name="check_in" required min="{{ date('Y-m-d', strtotime('+1 day')) }}"><br><br>
                 <label for="check_out">Check-out Date:</label>
-                <input type="date" id="check_out" name="check_out" required><br><br>
+                <input type="date" id="check_out" name="check_out" required min="{{ date('Y-m-d', strtotime('+1 day')) }}"><br><br>
                 <button type="submit">Book Now</button>
             </form>
         </div>

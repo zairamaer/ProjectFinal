@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminPropertyController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\AdminBookingController;
 use App\Http\Controllers\UserBookingController;
+use App\Http\Controllers\AdminDashboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,8 +29,10 @@ Route::post('/property/book/{id}', [PropertyController::class, 'book'])->name('p
 
 Route::get('bookings', [UserBookingController::class, 'index'])->name('user_bookings')->middleware('auth');
 
+
 Route::prefix('admin')->group(function () {
     // Properties Routes
+    Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard.index');
     Route::get('/', [AdminPropertyController::class, 'index'])->name('admin.properties.index');
     Route::post('properties', [AdminPropertyController::class, 'store'])->name('admin.properties.store');
     Route::get('properties/{id}/edit', [AdminPropertyController::class, 'edit'])->name('admin.properties.edit');

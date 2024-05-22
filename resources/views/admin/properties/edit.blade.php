@@ -13,7 +13,7 @@
         }
         .container {
             max-width: 600px;
-            margin: 100px auto 20px; /* Added margin-top */
+            margin: 100px auto 20px;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
@@ -29,7 +29,8 @@
         }
         form input[type="text"],
         form textarea,
-        form input[type="number"] {
+        form input[type="number"],
+        form input[type="file"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -64,27 +65,41 @@
         .go-back-button:hover {
             background-color: #5a6268;
         }
+        .error {
+            color: red;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Edit Property</h1>
+        @if ($errors->any())
+            <div class="error">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form action="{{ route('admin.properties.update', $property->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" value="{{ $property->name }}">
+            <input type="text" id="name" name="name" value="{{ old('name', $property->name) }}" required>
             
             <label for="description">Description:</label>
-            <textarea id="description" name="description">{{ $property->description }}</textarea>
+            <textarea id="description" name="description" required>{{ old('description', $property->description) }}</textarea>
             
             <label for="price">Price:</label>
-            <input type="number" id="price" name="price" value="{{ $property->price }}">
+            <input type="number" id="price" name="price" value="{{ old('price', $property->price) }}" required min="0">
 
             <label for="location">Location:</label>
-            <input type="text" id="location" name="location" autocomplete="location">
+            <input type="text" id="location" name="location" value="{{ old('location', $property->location) }}" autocomplete="address-line1" required>
 
-            <input type="file" name="image">
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image">
             
             <button type="submit">Update Property</button>
             <a href="{{ route('admin.properties.index') }}" class="go-back-button">Go Back</a>

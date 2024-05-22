@@ -60,7 +60,7 @@ class PropertyController extends Controller
     {
         // Validate the request data
         $request->validate([
-            'check_in' => 'required|date',
+            'check_in' => 'required|date|after_or_equal:today',
             'check_out' => 'required|date|after:check_in',
         ]);
     
@@ -90,5 +90,5 @@ class PropertyController extends Controller
     
         // Redirect back with success message
         return redirect()->back()->with('success', 'Property booked successfully.');
-    }    
+    }
 }
