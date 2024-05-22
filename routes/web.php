@@ -21,11 +21,12 @@ Route::get('/login', [UserController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
 
 Route::get('properties/create', [AdminPropertyController::class, 'create'])->name('admin.properties.create');
-Route::get('home', [PropertyController::class, 'index'])->name('properties.index');
-Route::get('/property/{id}', [PropertyController::class, 'show'])->name('property.show');
+Route::get('home', [PropertyController::class, 'index'])->name('users.properties.index');
+Route::get('/property/{id}', [PropertyController::class, 'show'])->name('users.property.show');
 Route::get('/properties/filter', [PropertyController::class, 'filterByLocation'])->name('property.filter'); 
-Route::get('/properties', [PropertyController::class, 'index'])->name('property.index');
-Route::post('/property/book/{id}', [PropertyController::class, 'book'])->name('property.book');
+Route::get('/properties', [PropertyController::class, 'index'])->name('users.property.index');
+Route::post('/property/book/{id}', [PropertyController::class, 'book'])->name('users.property.book');
+Route::get('/admin/properties/{id}', [AdminPropertyController::class, 'show'])->name('admin.properties.show');
 
 Route::get('bookings', [UserBookingController::class, 'index'])->name('user_bookings')->middleware('auth');
 
@@ -35,6 +36,7 @@ Route::prefix('admin')->group(function () {
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard.index');
     Route::get('/', [AdminPropertyController::class, 'index'])->name('admin.properties.index');
     Route::post('properties', [AdminPropertyController::class, 'store'])->name('admin.properties.store');
+    Route::get('properties/{id}', [AdminPropertyController::class, 'show'])->name('admin.properties.show');
     Route::get('properties/{id}/edit', [AdminPropertyController::class, 'edit'])->name('admin.properties.edit');
     Route::put('properties/{id}', [AdminPropertyController::class, 'update'])->name('admin.properties.update');
     Route::delete('properties/{id}', [AdminPropertyController::class, 'destroy'])->name('admin.properties.destroy');
