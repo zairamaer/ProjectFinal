@@ -120,6 +120,21 @@
             height: auto;
             border-radius: 4px;
         }
+                /* Style for "View Details" button */
+                .view-details-button {
+            background-color: #ffc107; /* Yellow background color */
+            color: #212529; /* Dark text color */
+            border: none; /* Remove border */
+            padding: 8px 12px; /* Padding around the text */
+            border-radius: 4px; /* Rounded corners */
+            cursor: pointer; /* Add pointer cursor on hover */
+            text-decoration: none; /* Remove underline */
+            transition: background-color 0.3s; /* Smooth transition for background color */
+        }
+
+        .view-details-button:hover {
+            background-color: #ffca2b; /* Darken the background color on hover */
+        }
     </style>
     <script>
         function confirmDeletion(event) {
@@ -172,6 +187,7 @@
                                 @method('DELETE')
                                 <button type="submit" onclick="confirmDeletion(event)">Delete</button>
                             </form>
+                            <a href="{{ route('admin.properties.show', $property->id) }}" class="view-details-button">View Details</a>
                         </td>
                     </tr>
                 @endforeach

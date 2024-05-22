@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-namespace App\Http\Controllers;
-
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Property;
@@ -49,6 +47,12 @@ class AdminPropertyController extends Controller
         } catch (\Exception $e) {
             return back()->withErrors(['error' => 'Error creating property: ' . $e->getMessage()]);
         }
+    }
+
+    public function show($id)
+    {
+        $property = Property::findOrFail($id);
+        return view('admin.properties.show', compact('property'));
     }
 
     public function edit($id)
