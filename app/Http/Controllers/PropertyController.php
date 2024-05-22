@@ -23,7 +23,7 @@ class PropertyController extends Controller
 
         $locations = Property::distinct()->pluck('location')->filter()->toArray();
 
-        return view('properties.index', compact('properties', 'locations'));
+        return view('users.properties.index', compact('properties', 'locations'));
     }
 
     /**
@@ -35,7 +35,7 @@ class PropertyController extends Controller
     public function show($id)
     {
         $property = Property::findOrFail($id);
-        return view('properties.show', compact('property'));
+        return view('users.properties.show', compact('property'));
     }
 
     /**
