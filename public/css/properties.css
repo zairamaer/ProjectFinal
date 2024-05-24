@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+.container {
+    max-width: 600px;
+    margin: 3pc auto;
+    margin-left: 31pc;
+    padding: 20px;
+    background-color: #0D5C75;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container a {
+    padding-left: 29px;
+    color: #fff;
+}
+
+.container1 {
+    margin-left: 70px;
+    margin-right: 10pc;
+    width: 420%;   
+    float: center;     
+}
+
+a {
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-right:2rem;
+    margin-left:2rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+h1 {
+    color: #0D5C75;
+    margin-top:pc;
+    margin-left:3.5pc;
+    display: flex;
+}
+
+.head2 {
+    max-width: 100px;
+    /* margin: 3pc auto; */
+    margin-top: 8px;
+    margin-left: 70pc;
+    /* padding: 25px; */
+    background-color: #0D5C75;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.head2 a {
+    color: #0D5C75;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+li {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 2px #0D5C75;
+}
+.property {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+
+}
+.property img {
+    max-width: 150px;
+    margin-right: 30px;
+    border-radius: 8px;
+}
+.property-details {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+.property-details h3 {
+    font-size: 20px;
+    margin: 0 0 10px;
+    margin-right: 19pc;
+}
+.property-details p {
+    font-size: 16px;
+    font-weight: 100;
+}
+.property-details p.price {
+    font-weight: bold;
+    margin-right: 19pc;
+    
+}
+.property-details p.des {
+    font-weight: bold;
+    margin-right: 19pc;
+}
+.no-image {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.filter {
+    width: 15%;
+    /* max-height: 100pc; */
+    /* margin-top:50pv; */
+    /* max-height: 150px; */
+    /* margin: 3pc auto; */
+    /* padding-bottom: 15pc; */
+    margin-bottom:1pc;
+    margin-left:5pc;
+    padding: 20px 50px 30px 50px;
+    background-color: #0D5C75;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 400px;
+}
+
+.details a {
+    text-decoration: none;
+}
+
+.both{
+    display:flex;
+}

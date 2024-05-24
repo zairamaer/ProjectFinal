@@ -1,0 +1,78 @@
+body{
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    background-color: #0D5C75;
+    margin-top: 6pc;
+}
+
+.container {
+    margin-left: 16pc;
+    width: 65vw;
+    height: 75vh;
+    background: #ffffff;
+    opacity: 80%;
+    border-radius: 25px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    color: #0D5C75;
+}
+
+.whole {
+    display: flex;
+    /* margin-right: 40pc; */
+}
+
+.whole1 {
+    /* padding: 1.8pc; */
+    /* padding-right: 35pc; */
+    /* padding-top: 1pc; */
+    padding-right: 1pc;
+}
+
+.tae {
+    /* padding: 1.8pc; */
+    margin-right: 2pc;
+    margin-left: 2pc;
+    margin-top: 10px;
+}
+
+.tae input{
+    width: 350px;
+    height: 40px;
+    display: block;
+    /* margin-left: auto;
+    margin-right: 2pc; */
+    border: 1px solid;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.tae label{
+    font-size:16px;
+}
+
+button {
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 10pc;
+    margin-bottom: 16px;
+}
+
+/* .register-link{
+    font-size: 12px;
+    margin-bottom: 2pc;
+    margin-left: 8pc;
+    
+} */
+
+.tae a{
+    /* margin-left: 2.5pc; */
+    text-decoration: none;
+    font-size: 12px;
+    margin-bottom: 2pc;
+    margin-left: 9.7pc;
+    /* color: ; */
+}
