@@ -6,8 +6,9 @@ body {
 }
 .container {
     width: 400px;
+    height: 300px;
     margin-top: 4pc;
-    margin-left: 20pc;
+    margin-left: 10pc;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -21,18 +22,18 @@ h1 {
 h2 {
     color: #333;
     margin-top: 30px;
-    margin-left: 13pc;
+    margin-left: 16pc;
 }
 p {
     color: #666;
     margin: 5px 0;
-    margin-left: 13pc;
+    margin-left: 16pc;
     margin-top: 30px;
 }
 img {
     max-width: 100%;
     height: auto;
-    margin-left: 13pc;
+    margin-left: 16pc;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
@@ -72,6 +73,11 @@ button:hover {
     text-decoration: none;
     margin-left: 40px;
     color: #0D5C75;
+}
+
+.details img {
+    width: 400px;
+    height: 300px;
 }
 
 .lahat {
