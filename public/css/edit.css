@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.container {
+    position: relative;
+    margin-left: 16pc;
+    padding: 20px;
+    width: 65vw;
+    height: 65vh;
+    background: #ffffff;
+    opacity: 80%;
+    border-radius: 25px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+}
+h1 {
+    font-size: 3pc;
+    margin-top: 50px;
+    margin-left: 37pc;
+    color: #0D5C75;
+}
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+form input[type="text"],
+form textarea,
+form input[type="number"],
+form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+form button {
+    background-color: #0D5C75;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+form button:hover {
+    background-color: #0D5C75;
+}
+.go-back-button {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+}
+.go-back-button:hover {
+    background-color: #5a6268;
+}
+.error {
+    color: red;
+    margin-bottom: 15px;
+}

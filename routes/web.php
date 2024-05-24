@@ -9,7 +9,7 @@ use App\Http\Controllers\UserBookingController;
 use App\Http\Controllers\AdminDashboardController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::resource('users', UserController::class);

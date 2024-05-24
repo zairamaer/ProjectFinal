@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center; /* Centering the body content */
+}
+.container {
+    max-width: 800px;
+    /* margin: 100px auto 20px; Added margin-top */
+    margin-top: 1pc;
+    margin-left: 18pc;
+    padding: 50px;
+    background: #ffffff;
+    opacity: 80%;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+    text-align: left; /* Reset text-align for inner content */
+}
+h1 {
+    margin-top: 70px;
+    color: #0D5C75;
+    /* margin-bottom: 10px; */
+}
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+form input[type="text"],
+form textarea,
+form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+form button {
+    background-color: #0D5C75;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+form button:hover {
+    background-color: #0D5C75;
+}
+.go-back {
+    margin-top: 20px;
+    text-align: center;
+}
+.go-back a {
+    color: #0D5C75;
+    text-decoration: none;
+    font-weight: bold;
+}
+.go-back a:hover {
+    text-decoration: underline;
+}

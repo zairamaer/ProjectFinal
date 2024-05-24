@@ -117,7 +117,7 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            return redirect()->intended(route('properties.index'));
+            return redirect()->intended(route('users.properties.index'));
         } else {
             return back()->withInput()->withErrors(['email' => 'Invalid credentials']);
         }
